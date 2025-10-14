@@ -23,7 +23,8 @@ ORDER BY SaleDate;
 WITH daily_sales_value AS (
   SELECT DATE(InvoiceDate) AS SaleDate, SUM(UnitPrice * Quantity) AS TotalSales
   FROM online_retail
-  GROUP BY DATE(InvoiceDate)
+  GROUP BY SaleDate
+  ORDER BY SaleDate
 )
 SELECT
   SaleDate,
@@ -42,3 +43,21 @@ FROM online_retail
 GROUP BY Country
 ORDER BY TotalItemsSold DESC;
 
+
+
+
+-- Random work
+
+SELECT *
+FROM Online_Retail
+WHERE UnitPrice < 0;
+
+SELECT *
+FROM Online_Retail
+WHERE InvoiceNo LIKE 'A%' OR InvoiceNo LIKE 'C%'
+
+SELECT InvoiceNo, Quantity
+FROM Online_Retail
+WHERE Quantity < 0
+  AND InvoiceNo NOT LIKE 'C%'
+  AND InvoiceNo NOT LIKE 'A%';
