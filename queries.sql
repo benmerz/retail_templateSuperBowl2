@@ -61,3 +61,17 @@ FROM Online_Retail
 WHERE Quantity < 0
   AND InvoiceNo NOT LIKE 'C%'
   AND InvoiceNo NOT LIKE 'A%';
+
+
+
+
+
+
+
+-- Test prep hehe
+SELECT  DISTINCT Country
+FROM Online_Retail
+ORDER BY Country;
+
+select count(*)
+from Online_Retail
